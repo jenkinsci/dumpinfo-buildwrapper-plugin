@@ -70,37 +70,6 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Dump the Hudson JDK information to the job log.
-   * 
-   * @param logger
-   *          the AbstractBuild logger
-   * @param jdks
-   *          the list of JDK tools
-   */
-  private static final void dumpJdks(final PrintStream logger,
-      final List<JDK> jdks)
-  {
-    if (logger == null)
-    {
-      return;
-    }
-
-    if (jdks == null)
-    {
-      return;
-    }
-
-    // ---
-
-    for (final JDK jdk : jdks)
-    {
-      logger.println(new StringBuilder().append("Found JDK: ")
-          .append(jdk.getName()).append(" at ").append(jdk.getHome())
-          .toString());
-    }
-  }
-
-  /**
    * Dump the Hudson slave computer information to the job log.
    * 
    * @param logger
@@ -133,6 +102,59 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
           .append(" with ").append(computer.getNumExecutors())
           .append(" executors - ").append(url).append("/")
           .append(computer.getUrl()).toString());
+    }
+  }
+
+  /**
+   * Dump the Hudson instance information to the job log.
+   * 
+   * @param logger
+   *          the AbstractBuild logger
+   */
+  private static void dumpHudson(final PrintStream logger)
+  {
+    if (logger == null)
+    {
+      return;
+    }
+
+    // ---
+
+    final Hudson hudson = Hudson.getInstance();
+
+    logger.println(new StringBuilder().append("Found Hudson: ")
+        .append(hudson.getDisplayName()).append(" ").append("v")
+        .append(Hudson.getVersion().toString()).toString());
+  }
+
+  /**
+   * Dump the Hudson JDK information to the job log.
+   * 
+   * @param logger
+   *          the AbstractBuild logger
+   * @param jdks
+   *          the list of JDK tools
+   */
+  private static final void dumpJdks(final PrintStream logger,
+      final List<JDK> jdks)
+  {
+    if (logger == null)
+    {
+      return;
+    }
+
+    if (jdks == null)
+    {
+      return;
+    }
+
+    // ---
+
+    for (final JDK jdk : jdks)
+    {
+      logger.println(new StringBuilder().append("Found JDK: ")
+          .append(jdk.getName()).append(" at ").append(jdk.getHome())
+          .toString());
     }
   }
 
@@ -231,11 +253,7 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
 
     // ---
 
-    logger.println(new StringBuilder().append("Found Hudson: ")
-        .append(hudson.getDisplayName()).append(" ").append("v")
-        .append(Hudson.getVersion().toString()).toString());
-
-    // ---
+    dumpHudson(logger);
 
     if (dumpComputers)
     {
