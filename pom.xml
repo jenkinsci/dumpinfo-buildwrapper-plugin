@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jvnet.hudson.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>1.393</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>dumpinfo-buildwrapper-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>hpi</packaging>
+
+  <name>Dump Info BuildWrapper Plugin</name>
+  <description>
+    Dumps vital information about the Hudson instance into the job log.
+  </description>
+  <url>http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin</url>
+
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <comments>All source code is under the MIT license.</comments>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>jieryn</id>
+      <name>Jesse Farinacci</name>
+      <email>jieryn@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/hudson/dumpinfo-buildwrapper-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:hudson/dumpinfo-buildwrapper-plugin.git</developerConnection>
+    <url>https://github.com/hudson/dumpinfo-buildwrapper-plugin</url>
+  </scm>
+
+  <!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->
+  <repositories>
+    <repository>
+      <id>m.g.o-public</id>
+      <url>http://maven.glassfish.org/content/groups/public/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>m.g.o-public</id>
+      <url>http://maven.glassfish.org/content/groups/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <distributionManagement>
+    <repository>
+      <id>java.net-m2-repository</id>
+      <url>http://maven.hudson-labs.org:8081/content/repositories/releases/</url>
+    </repository>
+  </distributionManagement>
+
+</project>
