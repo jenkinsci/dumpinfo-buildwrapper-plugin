@@ -216,14 +216,14 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
    * 
    * @see Hudson#getComputers()
    */
-  private boolean dumpComputers = true;
+  private final boolean dumpComputers;
 
   /**
    * Whether or not to dump information about Hudson JDK tools.
    * 
    * @see Hudson#getJDKs()
    */
-  private boolean dumpJdks      = true;
+  private final boolean dumpJdks;
 
   /**
    * Whether or not to dump information about Hudson plugins.
@@ -231,7 +231,7 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
    * @see Hudson#getPluginManager()
    * @see PluginManager#getPlugins()
    */
-  private boolean dumpPlugins   = true;
+  private final boolean dumpPlugins;
 
   @DataBoundConstructor
   public DumpInfoBuildWrapper(final boolean dumpComputers,
@@ -240,6 +240,36 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
     this.dumpComputers = dumpComputers;
     this.dumpJdks = dumpJdks;
     this.dumpPlugins = dumpPlugins;
+  }
+
+  /**
+   * Get whether or not to dump information about Hudson slave computers.
+   * 
+   * @return whether or not to dump information about Hudson slave computers
+   */
+  public boolean isDumpComputers()
+  {
+    return dumpComputers;
+  }
+
+  /**
+   * Get whether or not to dump information about Hudson JDK tools.
+   * 
+   * @return whether or not to dump information about Hudson JDK tools
+   */
+  public boolean isDumpJdks()
+  {
+    return dumpJdks;
+  }
+
+  /**
+   * Get whether or not to dump information about Hudson plugins.
+   * 
+   * @return whether or not to dump information about Hudson plugins
+   */
+  public boolean isDumpPlugins()
+  {
+    return dumpPlugins;
   }
 
   @Override
