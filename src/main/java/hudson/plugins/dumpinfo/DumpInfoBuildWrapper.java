@@ -26,11 +26,14 @@ package hudson.plugins.dumpinfo;
 
 import hudson.Extension;
 import hudson.Launcher;
+import hudson.PluginWrapper;
 import hudson.PluginManager;
 import hudson.model.BuildListener;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
+import hudson.model.Computer;
 import hudson.model.Hudson;
+import hudson.model.JDK;
 import hudson.tasks.BuildWrapper;
 import hudson.tasks.BuildWrapperDescriptor;
 
@@ -40,8 +43,10 @@ import java.io.PrintStream;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 /**
+ * This plugin allows jobs to automatically dump some important Hudson-specific
+ * information into the job log.
+ * 
  * @author <a href="mailto:jieryn@gmail.com">Jesse Farinacci</a>
- * @version $Id$
  * @since 1.393
  */
 public final class DumpInfoBuildWrapper extends BuildWrapper
@@ -87,6 +92,16 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
    */
   private final boolean dumpPlugins;
 
+  /**
+   * Configuration of this plugin is per-job.
+   * 
+   * @param dumpComputers
+   *          whether or not to dump information about Hudson slave computers.
+   * @param dumpJdks
+   *          whether or not to dump information about Hudson JDK tools.
+   * @param dumpPlugins
+   *          whether or not to dump information about Hudson plugins.
+   */
   @DataBoundConstructor
   public DumpInfoBuildWrapper(final boolean dumpComputers,
       final boolean dumpJdks, final boolean dumpPlugins)
@@ -139,21 +154,30 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
 
     // ---
 
-    HudsonUtils.dumpHudson(logger);
+    logger.println(MessagesUtils.format(Hudson.getInstance()));
 
     if (dumpComputers)
     {
-      HudsonUtils.dumpComputers(logger, hudson.getComputers());
+      for (final Computer computer : hudson.getComputers())
+      {
+        logger.println(MessagesUtils.format(computer));
+      }
     }
 
     if (dumpJdks)
     {
-      HudsonUtils.dumpJdks(logger, hudson.getJDKs());
+      for (final JDK jdk : hudson.getJDKs())
+      {
+        logger.println(MessagesUtils.format(jdk));
+      }
     }
 
     if (dumpPlugins)
     {
-      HudsonUtils.dumpPlugins(logger, hudson.getPluginManager());
+      for (final PluginWrapper plugin : hudson.getPluginManager().getPlugins())
+      {
+        logger.println(MessagesUtils.format(plugin));
+      }
     }
 
     // ---
