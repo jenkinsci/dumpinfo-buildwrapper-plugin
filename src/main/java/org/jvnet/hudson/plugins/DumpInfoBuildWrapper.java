@@ -92,16 +92,21 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
 
     // ---
 
-    final String url = Hudson.getInstance().getRootUrl();
-
     for (final Computer computer : computers)
     {
-      logger.println(new StringBuilder().append("Found computer: ")
-          .append(computer.getDisplayName()).append(" (")
-          .append(computer.isOnline() ? "ONLINE" : "OFFLINE").append(")")
-          .append(" with ").append(computer.getNumExecutors())
-          .append(" executors - ").append(url).append("/")
-          .append(computer.getUrl()).toString());
+      if (computer.isOnline())
+      {
+        logger.println(Messages.DumpInfo_Computer_Online(
+            computer.getDisplayName(), computer.getNumExecutors(),
+            getRootUrl(computer)));
+      }
+
+      else
+      {
+        logger.println(Messages.DumpInfo_Computer_Offline(
+            computer.getDisplayName(), computer.getNumExecutors(),
+            getRootUrl(computer)));
+      }
     }
   }
 
@@ -121,10 +126,8 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
     // ---
 
     final Hudson hudson = Hudson.getInstance();
-
-    logger.println(new StringBuilder().append("Found Hudson: ")
-        .append(hudson.getDisplayName()).append(" ").append("v")
-        .append(Hudson.getVersion().toString()).toString());
+    logger.println(Messages.DumpInfo_Hudson(hudson.getDisplayName(),
+        Hudson.getVersion()));
   }
 
   /**
@@ -152,9 +155,7 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
 
     for (final JDK jdk : jdks)
     {
-      logger.println(new StringBuilder().append("Found JDK: ")
-          .append(jdk.getName()).append(" at ").append(jdk.getHome())
-          .toString());
+      logger.println(Messages.DumpInfo_Tool_JDK(jdk.getName(), jdk.getHome()));
     }
   }
 
@@ -183,10 +184,8 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
 
     for (final PluginWrapper plugin : plugins)
     {
-      logger.println(new StringBuilder().append("Found plugin: ")
-          .append(plugin.getLongName()).append(" v")
-          .append(plugin.getVersion()).append(" - ").append(plugin.getUrl())
-          .toString());
+      logger.println(Messages.DumpInfo_Plugin(plugin.getLongName(),
+          plugin.getVersion(), plugin.getUrl()));
     }
   }
 
@@ -209,6 +208,19 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
     // ---
 
     dumpPlugins(logger, pluginManager.getPlugins());
+  }
+
+  /**
+   * Create a fully qualified URL string to reach a particular Computer
+   * definition on the master.
+   * 
+   * @param computer
+   *          the computer to create the URL string for
+   * @return the URL string
+   */
+  private static final String getRootUrl(final Computer computer)
+  {
+    return Hudson.getInstance().getRootUrl() + "/" + computer.getUrl();
   }
 
   /**
