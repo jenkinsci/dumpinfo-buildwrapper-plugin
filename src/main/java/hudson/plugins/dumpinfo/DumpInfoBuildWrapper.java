@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.jvnet.hudson.plugins;
+package hudson.plugins.dumpinfo;
 
 import hudson.Extension;
 import hudson.Launcher;
