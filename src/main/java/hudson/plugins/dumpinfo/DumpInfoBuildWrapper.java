@@ -60,7 +60,7 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
     @Override
     public String getDisplayName()
     {
-      return DumpInfoBuildWrapper.class.getName();
+      return Messages.DumpInfo_DisplayName();
     }
 
     @Override
