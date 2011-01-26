@@ -60,4 +60,9 @@
     </repository>
   </distributionManagement>
 
+  <properties>
+    <!-- http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
 </project>
