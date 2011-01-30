@@ -33,7 +33,7 @@ import hudson.model.JDK;
  * Various utility functions for working with localized Messages.
  * 
  * @author <a href="mailto:jieryn@gmail.com">Jesse Farinacci</a>
- * @since 1.393
+ * @since 1.0
  */
 public final class MessagesUtils
 {
@@ -153,6 +153,29 @@ public final class MessagesUtils
     // ---
 
     return Messages.DumpInfo_Environment_Variable(key, value);
+  }
+
+  /**
+   * Format a system property.
+   * 
+   * @param key
+   *          the key from the system property key=value pair
+   * @param value
+   *          the value from the system property key=value pair
+   * @return the formatted string
+   * 
+   * @see Messages#DumpInfo_Environment_Variable(Object, Object)
+   */
+  public static String formatSystemProperty(final String key, final String value)
+  {
+    if (key == null)
+    {
+      return null;
+    }
+
+    // ---
+
+    return Messages.DumpInfo_System_Property(key, value);
   }
 
   /**

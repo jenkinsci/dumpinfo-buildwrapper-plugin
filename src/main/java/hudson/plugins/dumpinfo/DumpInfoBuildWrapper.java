@@ -39,7 +39,7 @@ import hudson.tasks.BuildWrapperDescriptor;
 
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.TreeSet;
+import java.util.Map;
 
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -48,7 +48,7 @@ import org.kohsuke.stapler.DataBoundConstructor;
  * information into the job log.
  * 
  * @author <a href="mailto:jieryn@gmail.com">Jesse Farinacci</a>
- * @since 1.393
+ * @since 1.0
  */
 public final class DumpInfoBuildWrapper extends BuildWrapper
 {
@@ -94,9 +94,16 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   private final boolean dumpPlugins;
 
   /**
+   * Whether or not to dump information about Hudson system properties.
+   * 
+   * @see SystemUtils#getSystemProperties()
+   */
+  private final boolean dumpSystemProperties;
+
+  /**
    * Whether or not to dump information about Hudson environment variables.
    * 
-   * @see java.lang.System#getenv()
+   * @see SystemUtils#getEnvironmentVariables()
    */
   private final boolean dumpEnvironmentVariables;
 
@@ -109,6 +116,8 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
    *          whether or not to dump information about Hudson JDK tools
    * @param dumpPlugins
    *          whether or not to dump information about Hudson plugins
+   * @param dumpSystemProperties
+   *          whether or not to dump information about Hudson system properties
    * @param dumpEnvironmentVariables
    *          whether or not to dump information about Hudson environment
    *          variables
@@ -116,13 +125,14 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   @DataBoundConstructor
   public DumpInfoBuildWrapper(final boolean dumpComputers,
       final boolean dumpJdks, final boolean dumpPlugins,
-      final boolean dumpEnvironmentVariables)
+      final boolean dumpSystemProperties, final boolean dumpEnvironmentVariables)
   {
     super();
 
     this.dumpComputers = dumpComputers;
     this.dumpJdks = dumpJdks;
     this.dumpPlugins = dumpPlugins;
+    this.dumpSystemProperties = dumpSystemProperties;
     this.dumpEnvironmentVariables = dumpEnvironmentVariables;
   }
 
@@ -154,6 +164,16 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   public boolean isDumpPlugins()
   {
     return dumpPlugins;
+  }
+
+  /**
+   * Get whether or not to dump information about Hudson system properties.
+   * 
+   * @return whether or not to dump information about Hudson system properties
+   */
+  public boolean isDumpSystemProperties()
+  {
+    return dumpSystemProperties;
   }
 
   /**
@@ -204,12 +224,23 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
       }
     }
 
+    if (dumpSystemProperties)
+    {
+      for (final Map.Entry<String, String> entry : SystemUtils
+          .getSystemProperties().entrySet())
+      {
+        logger.println(MessagesUtils.formatSystemProperty(entry.getKey(),
+            entry.getValue()));
+      }
+    }
+
     if (dumpEnvironmentVariables)
     {
-      for (final String key : new TreeSet<String>(System.getenv().keySet()))
+      for (final Map.Entry<String, String> entry : SystemUtils
+          .getEnvironmentVariables().entrySet())
       {
-        logger.println(MessagesUtils.formatEnvironmentVariable(key,
-            System.getenv(key)));
+        logger.println(MessagesUtils.formatEnvironmentVariable(entry.getKey(),
+            entry.getValue()));
       }
     }
 

@@ -48,6 +48,13 @@
     </tr>
     <tr>
       <td>
+        <f:entry field="dumpSystemProperties" title="${%DumpInfo.System.Properties}">
+          <f:checkbox default="true" />
+        </f:entry>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <f:entry field="dumpEnvironmentVariables" title="${%DumpInfo.Environment.Variables}">
           <f:checkbox default="true" />
         </f:entry>
