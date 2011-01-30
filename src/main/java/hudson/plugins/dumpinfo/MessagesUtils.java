@@ -132,6 +132,30 @@ public final class MessagesUtils
   }
 
   /**
+   * Format a system environment variable.
+   * 
+   * @param key
+   *          the key from the system environment key=value pair
+   * @param value
+   *          the value from the system environment key=value pair
+   * @return the formatted string
+   * 
+   * @see Messages#DumpInfo_Environment_Variable(Object, Object)
+   */
+  public static String formatEnvironmentVariable(final String key,
+      final String value)
+  {
+    if (key == null)
+    {
+      return null;
+    }
+
+    // ---
+
+    return Messages.DumpInfo_Environment_Variable(key, value);
+  }
+
+  /**
    * static-only access
    */
   private MessagesUtils()

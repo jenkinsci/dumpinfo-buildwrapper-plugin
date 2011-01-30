@@ -39,6 +39,7 @@ import hudson.tasks.BuildWrapperDescriptor;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.TreeSet;
 
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -93,24 +94,36 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   private final boolean dumpPlugins;
 
   /**
+   * Whether or not to dump information about Hudson environment variables.
+   * 
+   * @see java.lang.System#getenv()
+   */
+  private final boolean dumpEnvironmentVariables;
+
+  /**
    * Configuration of this plugin is per-job.
    * 
    * @param dumpComputers
-   *          whether or not to dump information about Hudson slave computers.
+   *          whether or not to dump information about Hudson slave computers
    * @param dumpJdks
-   *          whether or not to dump information about Hudson JDK tools.
+   *          whether or not to dump information about Hudson JDK tools
    * @param dumpPlugins
-   *          whether or not to dump information about Hudson plugins.
+   *          whether or not to dump information about Hudson plugins
+   * @param dumpEnvironmentVariables
+   *          whether or not to dump information about Hudson environment
+   *          variables
    */
   @DataBoundConstructor
   public DumpInfoBuildWrapper(final boolean dumpComputers,
-      final boolean dumpJdks, final boolean dumpPlugins)
+      final boolean dumpJdks, final boolean dumpPlugins,
+      final boolean dumpEnvironmentVariables)
   {
     super();
 
     this.dumpComputers = dumpComputers;
     this.dumpJdks = dumpJdks;
     this.dumpPlugins = dumpPlugins;
+    this.dumpEnvironmentVariables = dumpEnvironmentVariables;
   }
 
   /**
@@ -141,6 +154,17 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   public boolean isDumpPlugins()
   {
     return dumpPlugins;
+  }
+
+  /**
+   * Get whether or not to dump information about Hudson environment variables.
+   * 
+   * @return whether or not to dump information about Hudson environment
+   *         variables
+   */
+  public boolean isDumpEnvironmentVariables()
+  {
+    return dumpEnvironmentVariables;
   }
 
   @Override
@@ -177,6 +201,15 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
       for (final PluginWrapper plugin : hudson.getPluginManager().getPlugins())
       {
         logger.println(MessagesUtils.format(plugin));
+      }
+    }
+
+    if (dumpEnvironmentVariables)
+    {
+      for (final String key : new TreeSet<String>(System.getenv().keySet()))
+      {
+        logger.println(MessagesUtils.formatEnvironmentVariable(key,
+            System.getenv(key)));
       }
     }
 

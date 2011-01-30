@@ -22,36 +22,6 @@
   THE SOFTWARE.
 -->
 
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
-  xmlns:f="/lib/form">
-  <f:advanced>
-    <tr>
-      <td>
-        <f:entry field="dumpComputers" title="${%DumpInfo.Computers}">
-          <f:checkbox default="true" />
-        </f:entry>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <f:entry field="dumpJdks" title="${%DumpInfo.JDKs}">
-          <f:checkbox default="true" />
-        </f:entry>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <f:entry field="dumpPlugins" title="${%DumpInfo.Plugins}">
-          <f:checkbox default="true" />
-        </f:entry>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <f:entry field="dumpEnvironmentVariables" title="${%DumpInfo.Environment.Variables}">
-          <f:checkbox default="true" />
-        </f:entry>
-      </td>
-    </tr>
-  </f:advanced>
-</j:jelly>
+<div>
+  <p>Whether or not to dump information about Hudson environment variables.</p>
+</div>
