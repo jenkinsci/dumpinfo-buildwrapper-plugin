@@ -27,7 +27,6 @@ package hudson.plugins.dumpinfo;
 import hudson.Extension;
 import hudson.Launcher;
 import hudson.PluginWrapper;
-import hudson.PluginManager;
 import hudson.model.BuildListener;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
@@ -74,22 +73,22 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   /**
    * Whether or not to dump information about Hudson slave computers.
    * 
-   * @see Hudson#getComputers()
+   * @see hudson.model.Hudson#getComputers()
    */
   private final boolean dumpComputers;
 
   /**
    * Whether or not to dump information about Hudson JDK tools.
    * 
-   * @see Hudson#getJDKs()
+   * @see hudson.model.Hudson#getJDKs()
    */
   private final boolean dumpJdks;
 
   /**
    * Whether or not to dump information about Hudson plugins.
    * 
-   * @see Hudson#getPluginManager()
-   * @see PluginManager#getPlugins()
+   * @see hudson.model.Hudson#getPluginManager()
+   * @see hudson.PluginManager#getPlugins()
    */
   private final boolean dumpPlugins;
 
