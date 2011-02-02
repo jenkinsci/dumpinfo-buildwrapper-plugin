@@ -43,7 +43,7 @@
   <description>
     Dumps vital information about the Hudson instance into the job log.
   </description>
-  <url>http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin</url>
+  <url>http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin</url>
 
   <licenses>
     <license>
@@ -61,9 +61,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/hudson/dumpinfo-buildwrapper-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:hudson/dumpinfo-buildwrapper-plugin.git</developerConnection>
-    <url>https://github.com/hudson/dumpinfo-buildwrapper-plugin</url>
+    <connection>scm:git:git://github.com/jenkins/dumpinfo-buildwrapper-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkins/dumpinfo-buildwrapper-plugin.git</developerConnection>
+    <url>https://github.com/jenkins/dumpinfo-buildwrapper-plugin</url>
   </scm>
 
   <!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->

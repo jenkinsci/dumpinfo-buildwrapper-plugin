@@ -24,7 +24,7 @@
 
 <div>
 <span>The <a
-	href="http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin">Dump
+	href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin">Dump
 Info BuildWrapper Plugin</a> allows jobs to automatically dump some
 important Hudson-specific information into the job log.</span>
 </div>
