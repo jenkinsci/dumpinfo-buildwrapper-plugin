@@ -37,14 +37,14 @@ import hudson.model.Hudson;
 public final class ComputerUtils
 {
   /**
-   * Create a fully qualified URL string to reach a particular Computer
-   * definition on the master.
+   * Convenience method to {@link URLEncoder#encode(String)} a Computer URL for
+   * proper automatic linkage of console log http URLs in modern installations.
    * 
    * @param computer
-   *          the computer to create the URL string for
-   * @return the URL string
+   *          the Computer whose URL we are to encode
+   * @return the encoded URL
    */
-  public static final String getRootUrl(final Computer computer)
+  protected static String encode(final Computer computer)
   {
     if (computer == null)
     {
@@ -53,9 +53,60 @@ public final class ComputerUtils
 
     // ---
 
-    // TODO: handle escaping for computer urls with spaces in the name
+    return encode(computer.getUrl());
+  }
 
-    return Hudson.getInstance().getRootUrl() + "/" + computer.getUrl();
+  /**
+   * Convenience method to {@link URLEncoder#encode(String)} a Computer URL for
+   * proper automatic linkage of console log http URLs in modern installations.
+   * 
+   * @param url
+   *          the URL to encode
+   * @return the encoded URL
+   */
+  protected static String encode(final String url)
+  {
+    if (url == null)
+    {
+      return null;
+    }
+
+    // ---
+
+    // temporarily comment out the encoder because it leads to Hudson 404
+
+    // try
+    // {
+    // return URLEncoder.encode(url, "UTF-8");
+    // }
+    //
+    // catch (final UnsupportedEncodingException e)
+    // {
+    // /* unlikely, but failed encoding .. fall through */
+    // }
+
+    return url;
+  }
+
+  /**
+   * Create a fully qualified URL string to reach a particular Computer
+   * definition on the master.
+   * 
+   * @param computer
+   *          the computer to create the URL string for
+   * @return the URL string
+   */
+  public static String getRootUrl(final Computer computer)
+  {
+    if (computer == null)
+    {
+      return null;
+    }
+
+    // ---
+
+    return new StringBuilder().append(Hudson.getInstance().getRootUrl())
+        .append("/").append(encode(computer)).toString();
   }
 
   /**
