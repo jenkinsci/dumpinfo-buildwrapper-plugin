@@ -1,8 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2011-02-01T16:14:00.735">
-<file name="/home/jesse/workspaces/hudson/dumpinfo-buildwrapper-plugin/src/main/java/hudson/plugins/dumpinfo/ComputerUtils.java">
-<violation beginline="47" endline="59" begincolumn="23" endcolumn="3" rule="UnnecessaryFinalModifier" ruleset="Basic Rules" package="hudson.plugins.dumpinfo" class="ComputerUtils" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UnnecessaryFinalModifier" priority="3">
-Unnecessary final modifier in final class
-</violation>
-</file>
+<pmd version="4.2.5" timestamp="2011-02-03T15:09:50.175">
 </pmd>

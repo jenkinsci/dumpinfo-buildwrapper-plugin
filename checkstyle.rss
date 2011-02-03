@@ -3,19 +3,19 @@
 <rss version="0.91">
   <channel>
     <title>Dump Info BuildWrapper Plugin - Checkstyle report</title>
-    <link>http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin</link>
+    <link>http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin</link>
     <description>Dump Info BuildWrapper Plugin - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2004 - 2011</copyright>
     <item>
       <title>File: 4,
-             Errors: 107,
+             Errors: 110,
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin/checkstyle.html</link>
+            <link>http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -29,7 +29,7 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.SystemUtils.java">hudson/plugins/dumpinfo/SystemUtils.java</a>
+                  <a href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.SystemUtils.java">hudson/plugins/dumpinfo/SystemUtils.java</a>
                 </td>
                 <td>
                   0
@@ -43,7 +43,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.DumpInfoBuildWrapper.java">hudson/plugins/dumpinfo/DumpInfoBuildWrapper.java</a>
+                  <a href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.DumpInfoBuildWrapper.java">hudson/plugins/dumpinfo/DumpInfoBuildWrapper.java</a>
                 </td>
                 <td>
                   0
@@ -52,12 +52,12 @@
                   0
                 </td>
                 <td>
-                  44
+                  43
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.ComputerUtils.java">hudson/plugins/dumpinfo/ComputerUtils.java</a>
+                  <a href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.ComputerUtils.java">hudson/plugins/dumpinfo/ComputerUtils.java</a>
                 </td>
                 <td>
                   0
@@ -66,12 +66,12 @@
                   0
                 </td>
                 <td>
-                  13
+                  17
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="http://wiki.hudson-ci.org/display/HUDSON/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.MessagesUtils.java">hudson/plugins/dumpinfo/MessagesUtils.java</a>
+                  <a href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin/checkstyle.html#hudson.plugins.dumpinfo.MessagesUtils.java">hudson/plugins/dumpinfo/MessagesUtils.java</a>
                 </td>
                 <td>
                   0
