@@ -179,10 +179,10 @@ public final class MessagesUtils
   }
 
   /**
-   * Static-only access
+   * Static-only access.
    */
   private MessagesUtils()
   {
-    // static-only access
+    /* static-only access */
   }
 }

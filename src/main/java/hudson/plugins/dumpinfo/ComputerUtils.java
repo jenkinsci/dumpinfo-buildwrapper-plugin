@@ -37,8 +37,9 @@ import hudson.model.Hudson;
 public final class ComputerUtils
 {
   /**
-   * Convenience method to {@link URLEncoder#encode(String)} a Computer URL for
-   * proper automatic linkage of console log http URLs in modern installations.
+   * Convenience method to {@link java.net.URLEncoder#encode(String, String)} a
+   * Computer URL for proper automatic linkage of console log http:// URLs in
+   * modern installations.
    * 
    * @param computer
    *          the Computer whose URL we are to encode
@@ -57,8 +58,9 @@ public final class ComputerUtils
   }
 
   /**
-   * Convenience method to {@link URLEncoder#encode(String)} a Computer URL for
-   * proper automatic linkage of console log http URLs in modern installations.
+   * Convenience method to {@link java.net.URLEncoder#encode(String, String)} a
+   * Computer URL for proper automatic linkage of console log http:// URLs in
+   * modern installations.
    * 
    * @param url
    *          the URL to encode
@@ -110,10 +112,10 @@ public final class ComputerUtils
   }
 
   /**
-   * static-only access
+   * Static-only access.
    */
   private ComputerUtils()
   {
-    // static-only access
+    /* static-only access */
   }
 }
