@@ -47,13 +47,12 @@
 
     <links>
       <item name="Plugin Wiki" href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin" />
-      <item name="Plugin Issues" href="http://bit.ly/fkyGhv" />
+      <item name="Plugin Issues" href="http://issues.jenkins-ci.org/browse/JENKINS/component/15782" />
       <item name="Plugin SCM" href="https://github.com/jenkinsci/dumpinfo-buildwrapper-plugin" />
       <item name="Jenkins" href="http://jenkins-ci.org/" />
     </links>
 
     <menu name="Contact">
-      <item name="IRC" href="irc.html" />
       <item name="Mailing Lists" href="mail-lists.html" />
       <item name="Project Team" href="team-list.html" />
     </menu>
