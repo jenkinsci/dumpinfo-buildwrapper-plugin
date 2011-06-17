@@ -26,5 +26,5 @@
 <span>The <a
 	href="http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin">Dump
 Info BuildWrapper Plugin</a> allows jobs to automatically dump some
-important Hudson-specific information into the job log.</span>
+important Jenkins-specific information into the job log.</span>
 </div>

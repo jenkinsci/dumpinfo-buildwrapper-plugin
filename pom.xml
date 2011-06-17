@@ -41,7 +41,7 @@
 
   <name>Dump Info BuildWrapper Plugin</name>
   <description>
-    Dumps vital information about the Hudson instance into the job log.
+    Dumps vital information about the Jenkins instance into the job log.
   </description>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/DumpInfo+BuildWrapper+Plugin</url>
 

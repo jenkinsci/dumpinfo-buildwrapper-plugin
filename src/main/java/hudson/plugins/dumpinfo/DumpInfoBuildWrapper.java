@@ -43,7 +43,7 @@ import java.util.Map;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 /**
- * This plugin allows jobs to automatically dump some important Hudson-specific
+ * This plugin allows jobs to automatically dump some important Jenkins-specific
  * information into the job log.
  * 
  * @author <a href="mailto:jieryn@gmail.com">Jesse Farinacci</a>
@@ -71,21 +71,21 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Whether or not to dump information about Hudson slave computers.
+   * Whether or not to dump information about Jenkins slave computers.
    * 
    * @see hudson.model.Hudson#getComputers()
    */
   private final boolean dumpComputers;
 
   /**
-   * Whether or not to dump information about Hudson JDK tools.
+   * Whether or not to dump information about Jenkins JDK tools.
    * 
    * @see hudson.model.Hudson#getJDKs()
    */
   private final boolean dumpJdks;
 
   /**
-   * Whether or not to dump information about Hudson plugins.
+   * Whether or not to dump information about Jenkins plugins.
    * 
    * @see hudson.model.Hudson#getPluginManager()
    * @see hudson.PluginManager#getPlugins()
@@ -93,14 +93,14 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   private final boolean dumpPlugins;
 
   /**
-   * Whether or not to dump information about Hudson system properties.
+   * Whether or not to dump information about Jenkins system properties.
    * 
    * @see SystemUtils#getSystemProperties()
    */
   private final boolean dumpSystemProperties;
 
   /**
-   * Whether or not to dump information about Hudson environment variables.
+   * Whether or not to dump information about Jenkins environment variables.
    * 
    * @see SystemUtils#getEnvironmentVariables()
    */
@@ -110,15 +110,15 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
    * Configuration of this plugin is per-job.
    * 
    * @param dumpComputers
-   *          whether or not to dump information about Hudson slave computers
+   *          whether or not to dump information about Jenkins slave computers
    * @param dumpJdks
-   *          whether or not to dump information about Hudson JDK tools
+   *          whether or not to dump information about Jenkins JDK tools
    * @param dumpPlugins
-   *          whether or not to dump information about Hudson plugins
+   *          whether or not to dump information about Jenkins plugins
    * @param dumpSystemProperties
-   *          whether or not to dump information about Hudson system properties
+   *          whether or not to dump information about Jenkins system properties
    * @param dumpEnvironmentVariables
-   *          whether or not to dump information about Hudson environment
+   *          whether or not to dump information about Jenkins environment
    *          variables
    */
   @DataBoundConstructor
@@ -136,9 +136,9 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Get whether or not to dump information about Hudson slave computers.
+   * Get whether or not to dump information about Jenkins slave computers.
    * 
-   * @return whether or not to dump information about Hudson slave computers
+   * @return whether or not to dump information about Jenkins slave computers
    */
   public boolean isDumpComputers()
   {
@@ -146,9 +146,9 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Get whether or not to dump information about Hudson JDK tools.
+   * Get whether or not to dump information about Jenkins JDK tools.
    * 
-   * @return whether or not to dump information about Hudson JDK tools
+   * @return whether or not to dump information about Jenkins JDK tools
    */
   public boolean isDumpJdks()
   {
@@ -156,9 +156,9 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Get whether or not to dump information about Hudson plugins.
+   * Get whether or not to dump information about Jenkins plugins.
    * 
-   * @return whether or not to dump information about Hudson plugins
+   * @return whether or not to dump information about Jenkins plugins
    */
   public boolean isDumpPlugins()
   {
@@ -166,9 +166,9 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Get whether or not to dump information about Hudson system properties.
+   * Get whether or not to dump information about Jenkins system properties.
    * 
-   * @return whether or not to dump information about Hudson system properties
+   * @return whether or not to dump information about Jenkins system properties
    */
   public boolean isDumpSystemProperties()
   {
@@ -176,9 +176,9 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   }
 
   /**
-   * Get whether or not to dump information about Hudson environment variables.
+   * Get whether or not to dump information about Jenkins environment variables.
    * 
-   * @return whether or not to dump information about Hudson environment
+   * @return whether or not to dump information about Jenkins environment
    *         variables
    */
   public boolean isDumpEnvironmentVariables()

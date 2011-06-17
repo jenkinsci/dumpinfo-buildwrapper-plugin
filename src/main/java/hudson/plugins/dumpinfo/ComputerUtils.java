@@ -75,7 +75,7 @@ public final class ComputerUtils
 
     // ---
 
-    // temporarily comment out the encoder because it leads to Hudson 404
+    // temporarily comment out the encoder because it leads to Jenkins 404
 
     // try
     // {
