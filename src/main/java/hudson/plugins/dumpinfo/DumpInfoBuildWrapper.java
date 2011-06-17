@@ -107,6 +107,14 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   private final boolean dumpEnvironmentVariables;
 
   /**
+   * Whether or not to dump information about Jenkins JNDI bindings.
+   * 
+   * @see JndiUtils#getJndiBindings()
+   * @since 1.2
+   */
+  private final boolean dumpJndi;
+
+  /**
    * Configuration of this plugin is per-job.
    * 
    * @param dumpComputers
@@ -120,11 +128,41 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
    * @param dumpEnvironmentVariables
    *          whether or not to dump information about Jenkins environment
    *          variables
+   * 
+   * @deprecated
+   */
+  public DumpInfoBuildWrapper(final boolean dumpComputers,
+      final boolean dumpJdks, final boolean dumpPlugins,
+      final boolean dumpSystemProperties, final boolean dumpEnvironmentVariables)
+  {
+    this(dumpComputers, dumpJdks, dumpPlugins, dumpSystemProperties,
+        dumpEnvironmentVariables, true);
+  }
+
+  /**
+   * Configuration of this plugin is per-job.
+   * 
+   * @param dumpComputers
+   *          whether or not to dump information about Jenkins slave computers
+   * @param dumpJdks
+   *          whether or not to dump information about Jenkins JDK tools
+   * @param dumpPlugins
+   *          whether or not to dump information about Jenkins plugins
+   * @param dumpSystemProperties
+   *          whether or not to dump information about Jenkins system properties
+   * @param dumpEnvironmentVariables
+   *          whether or not to dump information about Jenkins environment
+   *          variables
+   * @param dumpJndi
+   *          whether or not to dump information about Jenkins JNDI bindings
+   * 
+   * @since 1.2
    */
   @DataBoundConstructor
   public DumpInfoBuildWrapper(final boolean dumpComputers,
       final boolean dumpJdks, final boolean dumpPlugins,
-      final boolean dumpSystemProperties, final boolean dumpEnvironmentVariables)
+      final boolean dumpSystemProperties,
+      final boolean dumpEnvironmentVariables, final boolean dumpJndi)
   {
     super();
 
@@ -133,6 +171,7 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
     this.dumpPlugins = dumpPlugins;
     this.dumpSystemProperties = dumpSystemProperties;
     this.dumpEnvironmentVariables = dumpEnvironmentVariables;
+    this.dumpJndi = dumpJndi;
   }
 
   /**
@@ -184,6 +223,16 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
   public boolean isDumpEnvironmentVariables()
   {
     return dumpEnvironmentVariables;
+  }
+
+  /**
+   * Get whether or not to dump information about Jenkins JNDI bindings.
+   * 
+   * @return whether or not to dump information about Jenkins JNDI bindings
+   */
+  public boolean isDumpJndi()
+  {
+    return dumpJndi;
   }
 
   @Override
@@ -239,6 +288,16 @@ public final class DumpInfoBuildWrapper extends BuildWrapper
           .getEnvironmentVariables().entrySet())
       {
         logger.println(MessagesUtils.formatEnvironmentVariable(entry.getKey(),
+            entry.getValue()));
+      }
+    }
+
+    if (dumpJndi)
+    {
+      for (final Map.Entry<String, String> entry : JndiUtils.getJndiBindings()
+          .entrySet())
+      {
+        logger.println(MessagesUtils.formatJndiBinding(entry.getKey(),
             entry.getValue()));
       }
     }

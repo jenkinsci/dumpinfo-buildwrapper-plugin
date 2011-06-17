@@ -84,7 +84,7 @@ public final class MessagesUtils
 
     // ---
 
-    return Messages.DumpInfo_Hudson(hudson.getDisplayName(),
+    return Messages.DumpInfo_Jenkins(hudson.getDisplayName(),
         Hudson.getVersion());
   }
 
@@ -176,6 +176,29 @@ public final class MessagesUtils
     // ---
 
     return Messages.DumpInfo_System_Property(key, value);
+  }
+
+  /**
+   * Format a JNDI binding.
+   * 
+   * @param key
+   *          the key from the JNDI property key=value pair
+   * @param value
+   *          the value from the JNDI property key=value pair
+   * @return the formatted string
+   * 
+   * @see Messages#DumpInfo_Jndi_Binding(Object, Object)
+   */
+  public static String formatJndiBinding(final String key, final String value)
+  {
+    if (key == null)
+    {
+      return null;
+    }
+
+    // ---
+
+    return Messages.DumpInfo_Jndi_Binding(key, value);
   }
 
   /**
