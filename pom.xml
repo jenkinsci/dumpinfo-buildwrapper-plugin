@@ -62,9 +62,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/jenkins/dumpinfo-buildwrapper-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:jenkins/dumpinfo-buildwrapper-plugin.git</developerConnection>
-    <url>https://github.com/jenkins/dumpinfo-buildwrapper-plugin</url>
+    <connection>scm:git:git://github.com/jenkinsci/dumpinfo-buildwrapper-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/dumpinfo-buildwrapper-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/dumpinfo-buildwrapper-plugin</url>
   </scm>
 
   <!-- get every artifact through maven.glassfish.org, which proxies all the artifacts that we need -->
